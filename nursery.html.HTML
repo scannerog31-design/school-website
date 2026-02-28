@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanner Nursery School | Elimu Bora na Malezi ya Kisasa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1b5e20; 
+            --secondary: #ffc107; 
+            --accent: #d32f2f; 
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --card-bg: #ffffff;
+            --section-alt: #f9f9f9;
+        }
+
+        /* Dark Mode Colors */
+        [data-theme="dark"] {
+            --bg: #121212;
+            --text: #e0e0e0;
+            --card-bg: #1e1e1e;
+            --section-alt: #181818;
+            --primary: #2e7d32;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; transition: 0.3s; }
+        body { background-color: var(--bg); color: var(--text); line-height: 1.6; scroll-behavior: smooth; }
+
+        /* Navigation */
+        nav {
+            background: var(--primary);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .logo { color: white; font-size: 1.6rem; font-weight: 800; letter-spacing: 1px; }
+        .nav-links { list-style: none; display: flex; align-items: center; }
+        .nav-links li { margin-left: 20px; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+        .nav-links a:hover { color: var(--secondary); }
+
+        /* Control Buttons */
+        .controls { display: flex; gap: 10px; margin-left: 20px; }
+        .mode-btn { 
+            background: var(--secondary); 
+            border: none; 
+            padding: 8px 15px; 
+            cursor: pointer; 
+            border-radius: 5px; 
+            font-weight: bold; 
+            font-size: 0.7rem;
+            text-transform: uppercase;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url('shule_mwanzo.jpg'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .motto { font-style: italic; color: var(--secondary); font-weight: 700; margin-bottom: 25px; font-size: 1.2rem; border: 2px solid var(--secondary); padding: 10px 30px; border-radius: 50px; background: rgba(0,0,0,0.2);}
+        
+        section { padding: 80px 10%; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.5rem; color: var(--primary); }
+        .section-title div { width: 80px; height: 5px; background: var(--secondary); margin: 15px auto; }
+
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center; }
+        .info-text h3 { color: var(--primary); font-size: 1.8rem; margin-bottom: 15px; }
+        .info-text p { margin-bottom: 15px; text-align: justify; }
+
+        .course-card { 
+            background: var(--card-bg); 
+            padding: 30px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+            border-top: 5px solid var(--primary);
+        }
+        .age-badge { background: var(--accent); color: white; padding: 4px 12px; border-radius: 15px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; display: inline-block; }
+
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .gallery-item { overflow: hidden; border-radius: 15px; height: 250px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+        .contact-box { background: var(--primary); color: white; border-radius: 30px; padding: 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .contact-box h3 { color: var(--secondary); margin-bottom: 20px; font-size: 1.5rem; }
+        
+        footer { background: #0a1f0c; color: #aaa; padding: 30px; text-align: center; font-size: 0.9rem; margin-top: 50px; }
+
+        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .nav-links { display: none; } }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">SCANNER NURSERY</div>
+    <ul class="nav-links">
+        <li><a href="#home" class="lang" data-sw="Mwanzo" data-en="Home">Mwanzo</a></li>
+        <li><a href="#about" class="lang" data-sw="Kuhusu Sisi" data-en="About Us">Kuhusu Sisi</a></li>
+        <li><a href="#courses" class="lang" data-sw="Programu" data-en="Programs">Programu</a></li>
+        <li><a href="#gallery" class="lang" data-sw="Gallery" data-en="Gallery">Gallery</a></li>
+        <li><a href="#contact" class="lang" data-sw="Mawasiliano" data-en="Contact">Mawasiliano</a></li>
+        <div class="controls">
+            <button class="mode-btn" onclick="changeLang()" id="langBtn">ENGLISH</button>
+            <button class="mode-btn" onclick="toggleTheme()" id="themeBtn">DARK MODE</button>
+        </div>
+    </ul>
+</nav>
+
+<section id="home" class="hero">
+    <div style="background: var(--accent); padding: 5px 20px; border-radius: 20px; font-weight: bold; margin-bottom: 15px;" class="lang" data-sw="🎒 TUNACHUKUA WATOTO KUANZIA MIAKA 3+" data-en="🎒 ENROLLING FROM 3+ YEARS">🎒 TUNACHUKUA WATOTO KUANZIA MIAKA 3+</div>
+    <h1 class="lang" data-sw="SCANNER NURSERY SCHOOL" data-en="SCANNER NURSERY SCHOOL">SCANNER NURSERY SCHOOL</h1>
+    <div class="motto lang" data-sw='"Ufaulu Bora kwa Ufunguo wa Maisha"' data-en='"Quality Education is the Key to Life"'>"Ufaulu Bora kwa Ufunguo wa Maisha"</div>
+    <p class="lang" data-sw="Msingi wa Elimu, Teknolojia na Maadili Mema kwa Viongozi wa Kesho." data-en="The Foundation of Education, Technology and Good Morals for Tomorrow's Leaders.">Msingi wa Elimu, Teknolojia na Maadili Mema kwa Viongozi wa Kesho.</p>
+    <br>
+    <a href="#contact" class="lang" data-sw="JISAJILI SASA" data-en="REGISTER NOW" style="background: var(--secondary); color: black; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 800; text-transform: uppercase;">Jisajili Sasa</a>
+</section>
+
+<section id="about">
+    <div class="info-grid">
+        <div class="info-text">
+            <h3 class="lang" data-sw="Historia na Ubora Wetu" data-en="Our History & Excellence">Historia na Ubora Wetu</h3>
+            <p class="lang" data-sw="Scanner Nursery School ni shule kongwe na yenye uzoefu wa miaka mingi katika kulea na kufundisha watoto katika ngazi ya awali. Shule yetu imekuwa na rekodi ya kipekee ya kufanya vizuri sana katika matokeo ya kitaifa kwa darasa la nne na darasa la saba kwa miaka mfululizo." 
+               data-en="Scanner Nursery School is an established school with many years of experience in nurturing and teaching children at the nursery level. Our school has a unique record of performing excellently in national results for Grade 4 and Grade 7 for consecutive years.">
+               Scanner Nursery School ni shule kongwe na yenye uzoefu wa miaka mingi katika kulea na kufundisha watoto katika ngazi ya awali. Shule yetu imekuwa na rekodi ya kipekee ya kufanya vizuri sana katika matokeo ya kitaifa kwa darasa la nne na darasa la saba kwa miaka mfululizo.
+            </p>
+            <p class="lang" data-sw="Tunajivunia kuwa na walimu waliofuzu na wenye upendo, ambao wanahakikisha kila mtoto anapata uangalizi binafsi. Mazingira yetu ni tulivu, salama, na yanampa mtoto hamu ya kupenda shule kila siku." 
+               data-en="We pride ourselves on having qualified and loving teachers who ensure every child receives personal attention. Our environment is calm, safe, and makes children love coming to school every day.">
+               Tunajivunia kuwa na walimu waliofuzu na wenye upendo, ambao wanahakikisha kila mtoto anapata uangalizi binafsi. Mazingira yetu ni tulivu, salama, na yanampa mtoto hamu ya kupenda shule kila siku.
+            </p>
+        </div>
+        <div>
+            <img src="PNG1.png" alt="Scanner School" style="width: 100%; border-radius: 20px; box-shadow: 15px 15px var(--secondary);">
+        </div>
+    </div>
+</section>
+
+<section id="courses" style="background: var(--section-alt);">
+    <div class="section-title">
+        <h2 class="lang" data-sw="Programu za Masomo" data-en="Academic Programs">Programu za Masomo</h2>
+        <div></div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+        <div class="course-card">
+            <span class="age-badge">Umri: 3 - 4</span>
+            <h3>Baby Class</h3>
+            <p class="lang" data-sw="Tunajikita katika kumfanya mtoto apende shule kupitia michezo, utambuzi wa rangi, herufi za awali na namba." data-en="We focus on making the child love school through games, color recognition, basic letters, and numbers.">Tunajikita katika kumfanya mtoto apende shule kupitia michezo, utambuzi wa rangi, herufi za awali na namba.</p>
+        </div>
+        <div class="course-card">
+            <span class="age-badge">Umri: 4 - 5</span>
+            <h3>Middle Class</h3>
+            <p class="lang" data-sw="Hapa mtoto anaanza stadi za kuandika, kusoma na kuhesabu (KKS) kwa kutumia mbinu za kisasa." data-en="Here the child starts writing, reading, and counting skills using modern methods.">Hapa mtoto anaanza stadi za kuandika, kusoma na kuhesabu (KKS) kwa kutumia mbinu za kisasa.</p>
+        </div>
+        <div class="course-card">
+            <span class="age-badge">Umri: 5 - 6</span>
+            <h3>Pre-Unit</h3>
+            <p class="lang" data-sw="Maandalizi rasmi ya kujiunga na darasa la kwanza. Tunasisitiza ufasaha wa lugha na ujasiri." data-en="Official preparation for Grade One. We emphasize language fluency and confidence.">Maandalizi rasmi ya kujiunga na darasa la kwanza. Tunasisitiza ufasaha wa lugha na ujasiri.</p>
+        </div>
+    </div>
+</section>
+
+<section id="gallery">
+    <div class="section-title">
+        <h2 class="lang" data-sw="Gallery / Picha" data-en="School Gallery">Gallery / Picha</h2>
+        <div></div>
+    </div>
+    <div class="gallery-grid">
+
+        
+        <div class="gallery-item"><img src="TODAY2.png" alt="1"></div>
+        
+        <div class="gallery-item"><img src="TODAY1.png" alt="1"></div>
+        <div class="gallery-item"><img src="PNG4.png" alt="1"></div>
+        <div class="gallery-item"><img src="PNG2.png" alt="2"></div>
+        <div class="gallery-item"><img src="PNG3.png" alt="3"></div>
+        <div class="gallery-item"><img src="TODAY3.png"4"></div>
+        <div class="gallery-item"><img src="TODAY4.png" alt="5"></div>
+        <div class="gallery-item"><img src="TODAY5.png" alt="6"></div>
+    </div>
+</section>
+
+<section id="services" style="background: var(--section-alt);">
+    <div class="section-title">
+        <h2 class="lang" data-sw="Huduma Nyinginezo" data-en="Our Services">Huduma Nyinginezo</h2>
+        <div></div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center;">
+        <div>
+            <span style="font-size: 3rem;">🚌</span>
+            <h4 class="lang" data-sw="Usafiri Salama" data-en="Safe Transport">Usafiri Salama</h4>
+            <p class="lang" data-sw="Tuna mabasi ya shule yanayofika maeneo mengi kumfuata na kumrudisha mtoto." data-en="We have school buses that reach many areas to pick up and drop off children.">Tuna mabasi ya shule yanayofika maeneo mengi kumfuata na kumrudisha mtoto.</p>
+        </div>
+        <div>
+            <span style="font-size: 3rem;">🍲</span>
+            <h4 class="lang" data-sw="Chakula & Lishe" data-en="Food & Nutrition">Chakula & Lishe</h4>
+            <p class="lang" data-sw="Tunatoa uji na chakula cha mchana chenye virutubisho kwa ukuaji wa mtoto." data-en="We provide nutritious porridge and lunch for the child's growth.">Tunatoa uji na chakula cha mchana chenye virutubisho kwa ukuaji wa mtoto.</p>
+        </div>
+        <div>
+            <span style="font-size: 3rem;">⚽</span>
+            <h4 class="lang" data-sw="Michezo & Sanaa" data-en="Sports & Arts">Michezo & Sanaa</h4>
+            <p class="lang" data-sw="Kukuza vipaji kupitia michezo ya watoto, kuigiza, na mashindano ya kitaaluma." data-en="Developing talents through children's games, acting, and academic competitions.">Kukuza vipaji kupitia michezo ya watoto, kuigiza, na mashindano ya kitaaluma.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="contact-box">
+        <div>
+            <h3 class="lang" data-sw="📞 Mawasiliano" data-en="📞 Contact Info">📞 Mawasiliano</h3>
+            <p>Mkuu: 0721 728 080</p>
+            <p>Admin: 0655 680 241</p>
+            <p>Email: scannernusssery7@gmail.com</p>
+        </div>
+        <div>
+            <h3 class="lang" data-sw="📍 Eneo Tulipo" data-en="📍 Location">📍 Eneo Tulipo</h3>
+            <p>Triple One Hostel, Dar es Salaam, Tanzania.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Scanner Nursery School. <span class="lang" data-sw="Haki zote zimehifadhiwa." data-en="All rights reserved.">Haki zote zimehifadhiwa.</span></p>
+</footer>
+
+<script>
+    let currentLang = 'sw';
+    function changeLang() {
+        const elements = document.querySelectorAll('.lang');
+        const btn = document.getElementById('langBtn');
+        if (currentLang === 'sw') {
+            elements.forEach(el => el.innerText = el.getAttribute('data-en'));
+            btn.innerText = 'KISWAHILI';
+            currentLang = 'en';
+        } else {
+            elements.forEach(el => el.innerText = el.getAttribute('data-sw'));
+            btn.innerText = 'ENGLISH';
+            currentLang = 'sw';
+        }
+    }
+
+    function toggleTheme() {
+        const body = document.body;
+        const themeBtn = document.getElementById('themeBtn');
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            themeBtn.innerText = 'DARK MODE';
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            themeBtn.innerText = 'LIGHT MODE';
+        }
+    }
+</script>
+
+</body>
+</html>
